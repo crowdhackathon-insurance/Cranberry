@@ -19,7 +19,7 @@ class CreateSchedulesTable extends Migration
             $table->string('startTime');
             $table->string('duration');
             $table->string('startPoint');//gps location
-            $table->string('distance');//gps location
+            $table->string('distance');
             $table->timestamps();
 
             $table->foreign('vehicle')->references('id')->on('vehicles');

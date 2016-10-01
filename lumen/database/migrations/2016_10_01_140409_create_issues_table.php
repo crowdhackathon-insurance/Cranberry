@@ -18,7 +18,7 @@ class CreateIssuesTable extends Migration
             $table->integer('customer')->unsigned();
             $table->string('location');
             $table->string('garage');
-            $table->string('files');
+            $table->string('files')->nullable();
             $table->string('type');
             $table->string('contactDetails');
             $table->integer('status')->unsigned();//status of issue
