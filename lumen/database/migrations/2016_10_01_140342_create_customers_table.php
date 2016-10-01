@@ -22,6 +22,7 @@ class CreateCustomersTable extends Migration
             $table->string('lastName');
             $table->string('primaryAddress');
             $table->string('primaryPhone');
+            $table->timestamps();
         });
     }
 

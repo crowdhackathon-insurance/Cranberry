@@ -13,7 +13,7 @@ class CreateVehiclesIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicles_issues', function (Blueprint $table) {
+        Schema::create('vehicle_issues', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehicle')->unsigned();
             $table->integer('issue')->unsigned();
@@ -31,6 +31,6 @@ class CreateVehiclesIssuesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('vehicles_issues');
+        Schema::drop('vehicle_issues');
     }
 }

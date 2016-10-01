@@ -13,7 +13,7 @@ class CreateVehiclesGpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicles_gps', function (Blueprint $table) {
+        Schema::create('vehicle_gps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehicle')->unsigned();
             $table->string('vehicleLocation');
@@ -30,6 +30,6 @@ class CreateVehiclesGpsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('vehicles_gps');
+        Schema::drop('vehicle_gps');
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Vehicles_issuesTableSeeder extends Seeder
+class Vehicle_gpsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class Vehicles_issuesTableSeeder extends Seeder
      */
     public function run()
     {
-
+		factory(App\Vehicle_gps::class, 50)->create();
     }
 }

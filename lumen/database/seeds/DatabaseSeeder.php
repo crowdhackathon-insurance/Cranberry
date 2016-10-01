@@ -11,19 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	Model::unguard();
-        // $this->call('UsersTableSeeder');
-         $this->call(CustomerTableSeeder::class);
          $this->call(StatusTableSeeder::class);
          $this->call(SourceTableSeeder::class);
-         
+        // $this->call('UsersTableSeeder');
+         $this->call(CustomerTableSeeder::class);
+
+
          //utilized by customerTableSeeder
          //$this->call(IssueTableSeeder::class);
          $this->call(ContractTableSeeder::class);
          $this->call(VehicleTableSeeder::class);
          $this->call(ScheduleTableSeeder::class);
-         $this->call(Vehicles_gpsTableSeeder::class);
-         $this->call(Vehicles_issuesTableSeeder::class);
-         Model::reguard();
+         $this->call(Vehicle_gpsTableSeeder::class);
+         $this->call(Vehicle_issuesTableSeeder::class);
+
     }
 }
