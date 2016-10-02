@@ -9,11 +9,15 @@
 - [x] Create basic installation
 - [x] Create Controllers & Models
 - [x] Create Seed for populating data
-- [ ] Create REST Structure
-- [ ] Validating Responses
-- [ ] Add Views
-- [ ] Add files
+- [x] Create REST Structure
+- [x] Validating Responses
+- [x] Add Views
+- [x] Add files
 - [ ] Optimization
 - [ ] Security
+
+How to use
+cd to folder
+php artisan migrate:refresh --seed
 
 ### Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
