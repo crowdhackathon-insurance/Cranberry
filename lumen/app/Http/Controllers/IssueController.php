@@ -15,9 +15,42 @@ class IssueController extends Controller{
      *
      * @return void
      */
-    public function setIssue(){
-    	$response='hello world';
-       return $response;
+    public function setIssue(Request $request){
+        /*
+        $table->integer('customer')->unsigned();
+        $table->string('location');
+        $table->string('garage');
+        $table->string('files');
+        $table->string('type');
+        $table->string('contactDetails');
+        $table->integer('status')->unsigned();//status of issue
+        $table->integer('source')->nullable()->unsigned();
+        $table->string('comment')->nullable();
+        $table->timestamps();
+
+        $table->foreign('customer')->references('id')->on('customers');
+        $table->foreign('status')->references('id')->on('statuses');
+        $table->foreign('source')->references('id')->on('sources');
+        */
+        $id = DB::table('issues')->insertGetId(
+            ['customer' => $request->input('customer'),
+             'location' => $request->input('location'),
+             'garage' => $request->input('garage'),
+             'files' => $request->input('files'),
+             'type' => $request->input('type'),
+             'contactDetails' => $request->input('contactDetails'),
+             'status' => 1,
+             'source' => $request->input('source'),
+             'comment' => $request->input('comment'),
+             'created_at' => date('Y-m-d H:i:s'),
+             'updated_at' => date('Y-m-d H:i:s')
+            ]
+        );
+
+    	$response=array(
+            "issue_id"=>$id
+            );
+       return json_encode($response);
     }
 	/**
      * Create a new controller instance.
