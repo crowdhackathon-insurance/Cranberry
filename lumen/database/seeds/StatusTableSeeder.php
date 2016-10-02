@@ -12,10 +12,10 @@ class StatusTableSeeder extends Seeder
      */
     public function run() 
     {
-		 DB::table('statuses')->insert(['label' => 'Pending']);
-		 DB::table('statuses')->insert(['label' => 'Accepted']);
-		 DB::table('statuses')->insert(['label' => 'Verification Required']);
-		 DB::table('statuses')->insert(['label' => 'Cancelled']);
-		 DB::table('statuses')->insert(['label' => 'Completed']);
+		 DB::table('statuses')->insert(['label' => 'Αναμονή']);
+		 DB::table('statuses')->insert(['label' => 'Επιβεβαίωση']);
+		 DB::table('statuses')->insert(['label' => 'Σε εξέλιξη']);
+		 DB::table('statuses')->insert(['label' => 'Ακύρωση']);
+		 DB::table('statuses')->insert(['label' => 'Ολοκλήρωση']);
     }
 }
