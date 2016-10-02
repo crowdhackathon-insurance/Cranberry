@@ -22,6 +22,7 @@ $app->group(['prefix' => 'api/json','namespace' => 'App\Http\Controllers'], func
     $app->get('getissue/{id}','IssueController@getIssue');
     //create a new issue. Automatic from app or manual for the backend
     $app->post('setissue','IssueController@setIssue');
+
     //return the issue status for the end user/backend operator
     $app->get('getissuestatus/{id}','IssueController@getIssueStatus');
     //creates a new schedule 
@@ -30,8 +31,11 @@ $app->group(['prefix' => 'api/json','namespace' => 'App\Http\Controllers'], func
     $app->post('setvehicle','VehicleController@setVehicle');
     //return info for the vehicle id
     $app->get('getvehicle/{id}','VehicleController@getVehicle');
+    
     //send gps coordinates
     $app->post('setgpsco','Vehicle_gpsController@setGpsCo');
+    $app->get('getvehicles','Vehicle_gpsController@getVehicles');
+
     //return all the issue assined to vehicle id
     $app->get('getmyissue/{id}','Vehicle_issueController@getMyIssue');
 
