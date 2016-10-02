@@ -33,15 +33,15 @@ class IssueController extends Controller{
         $table->foreign('source')->references('id')->on('sources');
         */
         $id = DB::table('issues')->insertGetId(
-            ['customer' => $request->input('customer'),
-             'location' => $request->input('location'),
-             'garage' => $request->input('garage'),
-             'files' => $request->input('files'),
-             'type' => $request->input('type'),
-             'contactDetails' => $request->input('contactDetails'),
+            ['customer' => 3,
+             'location' => '36.694926,22.308851',
+             'garage' => 'Αρτέμιδος 18, Βούλα 166 73',
+             'files' => '',
+             'type' => 'Θόρυβος Μηχανής',
+             'contactDetails' => '69188928498',
              'status' => 1,
-             'source' => $request->input('source'),
-             'comment' => $request->input('comment'),
+             'source' => 1,
+             'comment' => 'Ειναι σκοτάδι, θα ειμαι λίγο πιο πριν σε ενα περίπτερο',
              'created_at' => date('Y-m-d H:i:s'),
              'updated_at' => date('Y-m-d H:i:s')
             ]
@@ -50,10 +50,12 @@ class IssueController extends Controller{
     	$response=array(
             "issue_id"=>$id
             );
-       return json_encode($response);
+       //return json_encode($response);
+       return view('issue_status')->with('issueID', $id);
+
     }
 
-    
+
     public function getIssueStatus($id){
         
         $issue  = new Issue;

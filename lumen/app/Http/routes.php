@@ -12,8 +12,29 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+      return view('front_page');
 });
+
+$app->get('/profile', function () use ($app) {
+      return view('profile');
+});
+$app->get('/breakdown', function () use ($app) {
+      return view('breakdown');
+});
+
+$app->get('/accident', function () use ($app) {
+      return view('accident');
+});
+
+$app->get('/road', function () use ($app) {
+      return view('road');
+});
+$app->get('/game', function () use ($app) {
+      return view('game');
+});
+
+$app->post('/issue-status','IssueController@setIssue');
+
 
 $app->group(['prefix' => 'api/json','namespace' => 'App\Http\Controllers'], function($app)
 {
