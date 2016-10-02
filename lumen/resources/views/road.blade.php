@@ -13,7 +13,7 @@
 						<h1>Play "We Road"</h1>
 						<img src="{{ URL::asset('images/win.png') }}" class="img-rounded" alt="Cinque Terre" width="304" height="236">
 
-						<button type="button" class="btn btn-danger">Play</button>
+						<a href="{{ url('/game') }}"><button type="button" class="btn btn-danger">Play</button></a>
 						</center>
 						<div class="container">
 						  <h2>Μηνιαία Κατάταξη</h2>
