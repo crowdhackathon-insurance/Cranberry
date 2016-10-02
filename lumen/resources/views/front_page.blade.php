@@ -27,6 +27,20 @@
                               </div>
                               <button type="submit" class="btn btn-default">Login</button>
                         </form>
+                        <!--    ///// KAINOYRGIOS KWDIKAS -->
+
+        <div class="row text-center">
+          <div class="col-md-4 col-sm-12">
+            <button type="button" class="btn btn-primary btn-block">Facebook</button>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <button type="button" class="btn btn-info btn-block">Twitter</button>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <button type="button" class="btn btn-danger btn-block">Google+</button>
+          </div>
+        </div>
+  <!--    ////////////////////  -->
                     </div>
                 </div>
             </div>
