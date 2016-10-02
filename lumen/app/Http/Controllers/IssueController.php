@@ -52,13 +52,10 @@ class IssueController extends Controller{
             );
        return json_encode($response);
     }
-	/**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function getIssue($id){
-    	
+
+    
+    public function getIssueStatus($id){
+        
         $issue  = new Issue;
         // $issue_results=$issue::find($id);
         $issue_results = DB::table('issues')
@@ -74,6 +71,39 @@ class IssueController extends Controller{
             "id"=>$issue_results[0]->status,
             "label"=>$issue_results[0]->label
             );
+        $json_ret_value=json_encode($ret_val);
+
+       return $json_ret_value;
+    }
+
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function getIssue($id){
+    	
+        $issue  = new Issue;
+        // $issue_results=$issue::find($id);
+        $issue_results = DB::table('issues')
+                                ->select('issues.*','statuses.label','vehicle_issues.vehicle','vehicles.vehiclePlate')
+                                ->leftjoin('statuses', 'statuses.id', '=', 'issues.status')
+                                ->leftjoin('vehicle_issues', 'vehicle_issues.issue', '=', 'issues.id')
+                                ->leftjoin('vehicles', 'vehicle_issues.vehicle', '=', 'vehicles.id')
+                                ->where('issues.id',$id)
+                                ->limit(1)
+                                ->get();
+        $gps_results = DB::table('vehicle_gps')
+                                ->select('vehicleLocation')
+                                ->where('vehicle',$issue_results[0]->vehicle)
+                                ->orderBy('id', 'desc')->first();
+
+        $ret_val=array(
+            "data"=>$issue_results[0]->status,
+            "label"=>$issue_results[0]->label
+            );
+        $issue_results[0]->vehicleLocation=$gps_results->vehicleLocation;
+        $ret_val=$issue_results[0];
         $json_ret_value=json_encode($ret_val);
 
        return $json_ret_value;
